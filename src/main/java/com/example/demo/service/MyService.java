@@ -14,8 +14,8 @@ public class MyService {
 
     public void saveUser(Map<String, String> requestBody) {
         String username = requestBody.get("username");
-        String password = requestBody.get("password");
-        String emailaddress = requestBody.get("emailaddress");
+        String password = requestBody.get("userpassword");
+        String emailaddress = requestBody.get("useremail");
 
         try {
             myRepository.insertUser(username, password, emailaddress);
@@ -24,4 +24,21 @@ public class MyService {
             // Handle exception as needed
         }
     }
+   public Integer loginUser(Map<String,String> requestBody) {
+	   String username = requestBody.get("username");
+	   String password = requestBody.get("userpassword");
+	   Integer userId=0;;
+	   try {
+	   userId = myRepository.loginUser(username,password);
+	   if(userId!=null) {
+		
+	   }else {
+		  userId = 0;
+	   }
+	  
+   }catch(Exception e) {
+	   e.printStackTrace();
+   }
+	   return userId;
+}
 }
