@@ -3,6 +3,8 @@ package com.example.demo.repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.dao.DataAccessException;
+
 
 @Repository
 public class MyRepository {
@@ -13,5 +15,10 @@ public class MyRepository {
     public int insertUser(String username, String password, String emailaddress) {
         String sql = "INSERT INTO user_record (username, userpassword, useremail) VALUES (?, ?, ?)";
         return jdbcTemplate.update(sql, username, password, emailaddress);
+    }
+    @SuppressWarnings("deprecation")
+	public Integer loginUser(String username, String password) {
+        String sql = "SELECT userId FROM user_record WHERE username = ? AND userpassword = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{username, password}, (rs, rowNum) -> rs.getInt("userId"));
     }
 }
