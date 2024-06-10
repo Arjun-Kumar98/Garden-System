@@ -15,6 +15,7 @@ export class SignupComponent {
   newpassword:any;
   confpassword:any;
   emailaddress:any;
+  successmessage:any;
   
 constructor(private apiService:ApiService){}
 
@@ -27,7 +28,7 @@ register(){
   }
   this.apiService.signUp(data).subscribe({
       next:(response)=>{
-        console.log("The user is registered successfully");
+                        
       },
       error:(error)=>{
         console.error("Error registering user",error);

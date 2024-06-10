@@ -14,29 +14,34 @@ import { ApiService } from '../../core/api.service';
 export class HomepageComponent {
 title:any;
 newuser:any;
+userName:any;
+password:any;
+errormessage:any;
 newpassword:any;
 confpassword:any;
 emailaddress:any;
-login:boolean=true;
+
 
 constructor(private apiService:ApiService, private router:Router){}
 ngOnInit(){
   console.log("The page has loaded");
-  this.login = true;
   this.title="Welcome to Garden Management System";
 }
 signup(){
   this.router.navigate(['/Signup']);
 }
-register(){
+login(){
   const data={
-    "username":this.newuser,
-    "userpassword":this.newpassword,
-    "useremail":this.emailaddress
+    "username":this.userName,
+    "userpassword":this.password,
   }
-  this.apiService.signUp(data).subscribe({
+  this.apiService.login(data).subscribe({
       next:(response)=>{
-        console.log("The user is registered successfully");
+         if(response.userId>0){
+
+         }else{
+          this.errormessage = response.message;
+         }
       },
       error:(error)=>{
         console.error("Error registering user",error);
