@@ -7,11 +7,11 @@
     <h4 style="color: red;">{{errormessage}}</h4>
     <div class="form-group">
         <label><b>Username:</b></label>
-        <input type="text" maxlength="10" [(ngModel)]="userName" style="margin-left: 10px;">
+        <input type="text" maxlength="30" [(ngModel)]="userName" style="margin-left: 10px;">
     </div>
     <div class="form-group">
         <label><b>Password:</b></label>
-        <input type="password" maxlength="10" [(ngModel)]="password" style="margin-left: 10px;">
+        <input type="password" maxlength="30" [(ngModel)]="password" style="margin-left: 10px;">
     </div>
   
     <button type="submit" style="align-self: center; width: 100px;height: 30px;" (click)="login()">LOGIN</button>
