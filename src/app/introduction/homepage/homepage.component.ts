@@ -38,7 +38,7 @@ login(){
   this.apiService.login(data).subscribe({
       next:(response)=>{
          if(response.userId>0){
-
+this.router.navigate(['/Dashboard/'])
          }else{
           this.errormessage = response.message;
          }
