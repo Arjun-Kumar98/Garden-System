@@ -13,8 +13,14 @@ gard2:any;
 gard3:any;
 gard4:any;
 title:any;
-
+rows:{gard:string}[]=[];
 constructor(){}
-
+ngOnInit(){
+  this.addrow();
+}
 register(){}
+
+addrow(){
+this.rows.push({gard:""});
+}
 }
