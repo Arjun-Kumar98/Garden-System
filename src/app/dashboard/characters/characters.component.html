@@ -4,23 +4,13 @@
         <h1>{{title}}</h1>
     </div>
     <div class="card" style="display: flex; justify-content: center;" >
+        <div class ="form-group" *ngFor="let row of rows; let i =index">
         <div class="form-group">
-            <label><b>Inventory detail 1:</b></label>
-            <input type="text" maxlength="20"  [(ngModel)]="gard1" style="margin-left: 10px;">
+            <label><b>Inventory detail: {{i}}:</b></label>
+            <input type="text" maxlength="20"  [(ngModel)]="row.gard" style="margin-left: 10px;">
         </div>
-        <div class="form-group">
-            <label><b>Inventory details 2:</b></label>
-            <input type="password" maxlength="20" [(ngModel)]="gard2" style="margin-left: 10px;">
-        </div>
-        <div class="form-group">
-            <label><b>Inventory detail 3:</b></label>
-            <input type="password" maxlength="20" [(ngModel)]="gard3" style="margin-left: 10px;">
-        </div>
-        <div class="form-group">
-            <label><b>Inventory detail 4:</b></label>
-            <input type="text" maxlength="50" [(ngModel)]="gard4" style="margin-left: 10px;">
-        </div>
-    
+     </div>
+        <button type="submit" style="align-self: center; width: 100px;height: 30px;" (click)="addrow()">ADD</button>
         <button type="submit" style="align-self: center; width: 100px;height: 30px;" (click)="register()">REGISTER</button>
     </div>
-    </div>
+    
