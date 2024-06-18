@@ -24,13 +24,31 @@ emailaddress:any;
 
 constructor(private apiService:ApiService, private router:Router){}
 ngOnInit(){
-  console.log("The page has loaded");
   this.title="Welcome to Garden Management System";
 }
 signup(){
   this.router.navigate(['/Signup']);
 }
+
+logincheck(){
+  if(this.emptycheck(this.userName)&&this.emptycheck(this.password)){
+    this.login();
+  }else{
+    this.errormessage="Please enter all the details"; 
+  }
+}
+
+emptycheck(name:any){
+if((name!=null)&&(name!="")){
+  console.log("I am called here for now");
+return true;
+}else{
+  this.errormessage="Please enter all the details";
+return false;
+}
+}
 login(){
+
   const data={
     "username":this.userName,
     "userpassword":this.password,

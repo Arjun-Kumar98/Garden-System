@@ -6,10 +6,12 @@
     <div class="card" style="display: flex; justify-content: center;" >
         <div class ="form-group" *ngFor="let row of rows; let i =index">
         <div class="form-group">
-            <label><b>Inventory detail: {{i}}:</b></label>
-            <input type="text" maxlength="20"  [(ngModel)]="row.gard" style="margin-left: 10px;">
+            <label><b>Inventory detail: {{i+1}}:</b></label>
+            <p><label style="display: inline-block; font-weight: bold;">Name:</label><input type="text" maxlength="20"  [(ngModel)]="row.name" style="display:inline-block; width:200px; margin-left: 10px;">
+            <label style="display: inline-block;font-weight: bold;">Qty:</label><input type="number" max="100" [(ngModel)] = "row.quantity" style="display: inline-block; width:50px; margin-left: 3px;"><i class="fa fa-window-close" style="color: red;margin-left: 2px;" (click)="removerow(i)"></i></p>
+
         </div>
-     </div>
+     </div> 
         <button type="submit" style="align-self: center; width: 100px;height: 30px;" (click)="addrow()">ADD</button>
         <button type="submit" style="align-self: center; width: 100px;height: 30px;" (click)="register()">REGISTER</button>
     </div>
