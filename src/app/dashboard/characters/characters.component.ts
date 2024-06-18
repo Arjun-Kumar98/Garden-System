@@ -8,12 +8,8 @@ import {FormsModule} from '@angular/forms'
   styleUrl: './characters.component.css'
 })
 export class CharactersComponent {
-gard1:any;
-gard2:any;
-gard3:any;
-gard4:any;
 title:any;
-rows:{gard:string}[]=[];
+rows:{name:string,quantity:number}[]=[];
 constructor(){}
 ngOnInit(){
   this.addrow();
@@ -21,6 +17,9 @@ ngOnInit(){
 register(){}
 
 addrow(){
-this.rows.push({gard:""});
+this.rows.push({name:"",quantity:0});
+}
+removerow(data:any){
+  this.rows.splice(data,1);
 }
 }
