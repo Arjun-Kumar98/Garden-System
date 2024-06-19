@@ -24,7 +24,6 @@ emailaddress:any;
 
 constructor(private apiService:ApiService, private router:Router){}
 ngOnInit(){
-  console.log("The page has loaded");
   this.title="Welcome to Garden Management System";
 }
 signup(){
@@ -39,7 +38,6 @@ signup(){
 }
 
 emptycheck(name:any){
-  console.log("the name si =="+name);
 if((name!=null)&&(name!="")){
   console.log("I am called here for now");
 return true;
@@ -49,6 +47,7 @@ return false;
 }
 }
 login(){
+
   const data={
     "username":this.userName,
     "userpassword":this.password,

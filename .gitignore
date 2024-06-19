@@ -40,3 +40,10 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Ignore VS Code settings and cache
+.vs/
+.vscode/
+
+# Ignore Angular CLI cache
+.angular/
