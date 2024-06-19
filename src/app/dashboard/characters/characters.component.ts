@@ -20,7 +20,6 @@ addrow(){
 this.rows.push({name:"",quantity:0});
 }
 removerow(data:any){
-  console.log("The row will be removed");
   this.rows.splice(data,1);
 }
 }

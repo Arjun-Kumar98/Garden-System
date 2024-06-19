@@ -29,8 +29,7 @@ ngOnInit(){
 signup(){
   this.router.navigate(['/Signup']);
 }
-
-logincheck(){
+  logincheck(){
   if(this.emptycheck(this.userName)&&this.emptycheck(this.password)){
     this.login();
   }else{
