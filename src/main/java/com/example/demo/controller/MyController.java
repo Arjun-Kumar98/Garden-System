@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 import java.util.HashMap;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
@@ -53,4 +54,20 @@ public class MyController {
     	return response;
     }
     
+    
+    
+    @PostMapping("/insertInventory")
+    public Map<String,Object> insertInventory(@RequestBody Map<String,Object> requestBody){
+    	Map<String,Object> response = new HashMap<>();
+    	//try {)
+       try {
+    	myService.insertInventory(requestBody);
+        response.put("status",HttpStatus.OK.value());
+        response.put("message","Inventory inserted successfully");
+    	}catch(Exception e) {
+    		response.put("status",HttpStatus.INTERNAL_SERVER_ERROR.value());
+    		response.put("message","Failed to insert inventory");
+    	}
+return response;
+    }
 }
