@@ -55,6 +55,7 @@ login(){
   this.apiService.login(data).subscribe({
       next:(response)=>{
          if(response.userId>0){
+          window.localStorage.setItem("userId",response.userId);
 this.router.navigate(['/Dashboard/'])
          }else{
           this.errormessage = response.message;
