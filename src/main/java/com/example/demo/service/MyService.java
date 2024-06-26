@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+import java.util.List;
 
 @Service
 public class MyService {
@@ -34,11 +35,22 @@ public class MyService {
 		
 	   }else {
 		  userId = 0;
-	   }
+	   } 
 	  
    }catch(Exception e) {
-	   e.printStackTrace();
+	   System.out.println("Incorrect password entered by: "+username);
    }
 	   return userId;
 }
+   
+   public void insertInventory(Map<String,Object> requestBody) {
+		Integer userId = Integer.valueOf((String) requestBody.get("userId"));
+		  List<Map<String, Object>> inventoryList = (List<Map<String, Object>>) requestBody.get("inventory_list");
+		for(Map<String,Object> item:inventoryList) {
+		   String itemName = (String) item.get("name");
+		   Integer itemQty = (Integer) item.get("quantity");
+		   myRepository.insertInventory(userId, itemName, itemQty);
+		   
+	   }
+   }
 }

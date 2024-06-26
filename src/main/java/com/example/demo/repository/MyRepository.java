@@ -21,4 +21,8 @@ public class MyRepository {
         String sql = "SELECT userId FROM user_record WHERE username = ? AND userpassword = ?";
         return jdbcTemplate.queryForObject(sql, new Object[]{username, password}, (rs, rowNum) -> rs.getInt("userId"));
     }
+    public Integer insertInventory(Integer userId,String itemName,Integer itemQty) {
+    	String sql = "INSERT INTO inventory_record( userId,itemname,itemqty) VALUES(?,?,?)";
+   return jdbcTemplate.update(sql,userId,itemName,itemQty);
+    }
 }
