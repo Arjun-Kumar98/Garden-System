@@ -24,7 +24,7 @@ emailaddress:any;
 
 constructor(private apiService:ApiService, private router:Router){}
 ngOnInit(){
-  this.title="Welcome to Garden Management System";
+  this.title="Welcome to the Garden System";
 }
 signup(){
   this.router.navigate(['/Signup']);
