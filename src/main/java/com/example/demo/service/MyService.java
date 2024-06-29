@@ -53,4 +53,15 @@ public class MyService {
 		   
 	   }
    }
+   
+   public List<Map<String,Object>> getInventoryDetails(int userId){
+	 List<Map<String,Object>> inventoryList;
+	   inventoryList = myRepository.getInventorybyUserId(userId);
+	   if(inventoryList!=null) {
+		   return inventoryList;
+	   }else {
+		   return null;
+	   }
+   }
+   
 }
