@@ -1,8 +1,11 @@
 package com.example.demo.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import java.util.Map;
+import java.util.List;
 import org.springframework.dao.DataAccessException;
 
 
@@ -25,4 +28,15 @@ public class MyRepository {
     	String sql = "INSERT INTO inventory_record( userId,itemname,itemqty) VALUES(?,?,?)";
    return jdbcTemplate.update(sql,userId,itemName,itemQty);
     }
+
+    public List<Map<String,Object>> getInventorybyUserId(Integer userId){
+        String sql = "Select * from inventory_record where userId = ?";
+        return jdbcTemplate.queryForList(sql, new Object[]{userId});
+    }
+
+//    public List<Map<String,Object>> getInventorybyUserId(Integer userId){
+//    	String sql = "Select * from inventory_record where userId = ?";
+//    	return jdbcTemplate.queryForList(sql, new Object[]{userId});)
+//    }
+
 }

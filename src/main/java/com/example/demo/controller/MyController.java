@@ -70,4 +70,29 @@ public class MyController {
     	}
 return response;
     }
+    
+    @GetMapping("/getInventoryDetails/{userId}")
+    public Map<String,Object> getInventoryDetails(@PathVariable Integer userId){
+    	List<Map<String,Object>> inventoryList;
+    	Map<String,Object> response = new HashMap<>();
+    	try {
+    	inventoryList = myService.getInventoryDetails(userId);
+    	if(inventoryList.size()>1) {
+    		response.put("status",HttpStatus.OK.value());
+    		response.put("included", 1);
+    		response.put("inventorydetails",inventoryList);
+    		response.put("message","Data Fetch successfull");
+    	}else {
+    		response.put("status", HttpStatus.OK.value());
+    		response.put("included",0);
+    		
+    	}
+    	
+    	}catch(Exception e) {
+    		response.put("status",HttpStatus.INTERNAL_SERVER_ERROR.value());
+    		response.put("message", "Data fetch has failed");
+    	}
+    	return response;
+    }
+    
 }
