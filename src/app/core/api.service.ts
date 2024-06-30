@@ -22,4 +22,9 @@ export class ApiService {
     const headers = new HttpHeaders({'Content-Type':'application/json'});
     return this.http.post(`${this.apiUrl}users/insertInventory`,data,{headers});
   }
+
+  viewinventorydetails(data:any):Observable<any>{
+    const headers = new HttpHeaders({'Content-Type':'application/json'});
+    return this.http.get(`${this.apiUrl}users/getInventoryDetails/${data}`,{headers});
+  }
 }

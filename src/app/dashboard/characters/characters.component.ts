@@ -11,15 +11,29 @@ import { ApiService } from '../../core/api.service';
 export class CharactersComponent {
 title:any;
 message:any;
-rows:{name:string,quantity:number}[]=[];
+userId:any;
+rows:{itemname:string,itemqty:number}[]=[];
 constructor(private apiService:ApiService){}
 ngOnInit(){
   this.addrow();
   this.message="";
+  this.userId = window.localStorage.getItem("userId");
+  this.view_details();
+}
+view_details(){
+  this.apiService.viewinventorydetails(this.userId).subscribe(res=>{
+    if(res.status==200){
+      if(res.included==1){
+        this.rows=res.inventorydetails;
+      }else{
+        this.message=res.message;
+      }
+    }
+  })
 }
 register(){
 const data={
-  "userId":window.localStorage.getItem("userId"),
+  "userId":this.userId,
   "inventory_list":this.rows
 }
 this.apiService.saveinventorydetails(data).subscribe(res=>{
@@ -32,7 +46,7 @@ this.message=res.message;
 }
 
 addrow(){
-this.rows.push({name:"",quantity:0});
+this.rows.push({itemname:"",itemqty:0});
 }
 removerow(data:any){
   this.rows.splice(data,1);
