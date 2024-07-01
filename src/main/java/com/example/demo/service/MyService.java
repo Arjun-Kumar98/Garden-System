@@ -46,10 +46,17 @@ public class MyService {
    public void insertInventory(Map<String,Object> requestBody) {
 		Integer userId = Integer.valueOf((String) requestBody.get("userId"));
 		  List<Map<String, Object>> inventoryList = (List<Map<String, Object>>) requestBody.get("inventory_list");
+		  List<Map<String,Object>>  inventoryupdateList =(List<Map<String,Object>>) requestBody.get("inventory_update_list");
 		for(Map<String,Object> item:inventoryList) {
-		   String itemName = (String) item.get("name");
-		   Integer itemQty = (Integer) item.get("quantity");
+		   String itemName = (String) item.get("itemname");
+		   Integer itemQty = (Integer) item.get("itemqty");
 		   myRepository.insertInventory(userId, itemName, itemQty);
+		for(Map<String,Object> items : inventoryupdateList) {
+			String Name = (String) item.get("itemname");
+			Integer Qty = (Integer) item.get("itemqty");
+			Integer itemid = (Integer) item.get("itemId");
+			myRepository.updateInventory( Name, Qty, itemid);
+		}
 		   
 	   }
    }

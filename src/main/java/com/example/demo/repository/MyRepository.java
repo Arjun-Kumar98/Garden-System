@@ -29,6 +29,11 @@ public class MyRepository {
    return jdbcTemplate.update(sql,userId,itemName,itemQty);
     }
 
+    public Integer updateInventory(String itemName,Integer itemQty,Integer itemId) {
+    	String sql ="UPDATE inventory_record set itemname =? , itemqty =? where itemId =?";
+    	return jdbcTemplate.update(sql,itemName,itemQty,itemId);
+    	
+    }
     public List<Map<String,Object>> getInventorybyUserId(Integer userId){
         String sql = "Select * from inventory_record where userId = ?";
         return jdbcTemplate.queryForList(sql, new Object[]{userId});

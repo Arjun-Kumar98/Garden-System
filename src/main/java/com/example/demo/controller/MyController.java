@@ -77,7 +77,7 @@ return response;
     	Map<String,Object> response = new HashMap<>();
     	try {
     	inventoryList = myService.getInventoryDetails(userId);
-    	if(inventoryList.size()>1) {
+    	if(inventoryList.size()>0) {
     		response.put("status",HttpStatus.OK.value());
     		response.put("included", 1);
     		response.put("inventorydetails",inventoryList);
@@ -85,6 +85,7 @@ return response;
     	}else {
     		response.put("status", HttpStatus.OK.value());
     		response.put("included",0);
+    		response.put("message","Please fill your inventory");
     		
     	}
     	
