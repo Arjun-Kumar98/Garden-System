@@ -46,19 +46,25 @@ public class MyService {
    public void insertInventory(Map<String,Object> requestBody) {
 		Integer userId = Integer.valueOf((String) requestBody.get("userId"));
 		  List<Map<String, Object>> inventoryList = (List<Map<String, Object>>) requestBody.get("inventory_list");
+			for(Map<String,Object> item:inventoryList) {
+				   String itemName = (String) item.get("itemname");
+				   Integer itemQty = (Integer) item.get("itemqty");
+					System.out.println("The name here is=="+itemName);
+					System.out.println("The quantity here is =="+itemQty);
+				   myRepository.insertInventory(userId, itemName, itemQty);
+			}
 		  List<Map<String,Object>>  inventoryupdateList =(List<Map<String,Object>>) requestBody.get("inventory_update_list");
-		for(Map<String,Object> item:inventoryList) {
-		   String itemName = (String) item.get("itemname");
-		   Integer itemQty = (Integer) item.get("itemqty");
-		   myRepository.insertInventory(userId, itemName, itemQty);
 		for(Map<String,Object> items : inventoryupdateList) {
-			String Name = (String) item.get("itemname");
-			Integer Qty = (Integer) item.get("itemqty");
-			Integer itemid = (Integer) item.get("itemId");
+			String Name = (String) items.get("itemname");
+			Integer Qty = (Integer) items.get("itemqty");
+			Integer itemid = (Integer) items.get("itemId");
+			System.out.println("The name is=="+Name);
+			System.out.println("The quantity is =="+Qty);
+			System.out.println("The item is =="+itemid);
 			myRepository.updateInventory( Name, Qty, itemid);
 		}
 		   
-	   }
+	   
    }
    
    public List<Map<String,Object>> getInventoryDetails(int userId){
