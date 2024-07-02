@@ -25,12 +25,14 @@ public class MyRepository {
         return jdbcTemplate.queryForObject(sql, new Object[]{username, password}, (rs, rowNum) -> rs.getInt("userId"));
     }
     public Integer insertInventory(Integer userId,String itemName,Integer itemQty) {
+    	System.out.println("I am called to insert data into the inventory");
     	String sql = "INSERT INTO inventory_record( userId,itemname,itemqty) VALUES(?,?,?)";
    return jdbcTemplate.update(sql,userId,itemName,itemQty);
     }
 
     public Integer updateInventory(String itemName,Integer itemQty,Integer itemId) {
-    	String sql ="UPDATE inventory_record set itemname =? , itemqty =? where itemId =?";
+    	System.out.println("I am called to update the inventory");
+    	String sql ="UPDATE inventory_record set itemname = ? , itemqty =? where itemId =?";
     	return jdbcTemplate.update(sql,itemName,itemQty,itemId);
     	
     }
