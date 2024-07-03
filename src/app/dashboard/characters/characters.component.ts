@@ -47,7 +47,8 @@ register(){
 const data={
   "userId":this.userId,
   "inventory_list":this.newrows,
-  "inventory_update_list":this.updaterows
+  "inventory_update_list":this.updaterows,
+  "inventory_delete_list":this.deleterows
 }
 this.apiService.saveinventorydetails(data).subscribe(res=>{
 if(res.status==200){
@@ -70,6 +71,7 @@ removerow(data:any,item:any){
     this.rows.splice(data,1);
   }else{
       this.deleterows.push(item);
+      this.rows.splice(data,1);
       
   }
 }
