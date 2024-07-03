@@ -58,11 +58,13 @@ public class MyService {
 			String Name = (String) items.get("itemname");
 			Integer Qty = (Integer) items.get("itemqty");
 			Integer itemid = (Integer) items.get("itemId");
-			System.out.println("The name is=="+Name);
-			System.out.println("The quantity is =="+Qty);
-			System.out.println("The item is =="+itemid);
 			myRepository.updateInventory( Name, Qty, itemid);
 		}
+		 List<Map<String,Object>> inventorydeleteList = (List<Map<String,Object>>) requestBody.get("inventory_delete_list");
+		    for(Map<String,Object> idetails: inventorydeleteList) {
+		    	Integer itemids = (Integer) idetails.get("itemId");
+		    	myRepository.deleteInventoryItem(itemids);
+		    }
 		   
 	   
    }

@@ -31,7 +31,6 @@ public class MyRepository {
     }
 
     public Integer updateInventory(String itemName,Integer itemQty,Integer itemId) {
-    	System.out.println("I am called to update the inventory");
     	String sql ="UPDATE inventory_record set itemname = ? , itemqty =? where itemId =?";
     	return jdbcTemplate.update(sql,itemName,itemQty,itemId);
     	
@@ -41,9 +40,8 @@ public class MyRepository {
         return jdbcTemplate.queryForList(sql, new Object[]{userId});
     }
 
-//    public List<Map<String,Object>> getInventorybyUserId(Integer userId){
-//    	String sql = "Select * from inventory_record where userId = ?";
-//    	return jdbcTemplate.queryForList(sql, new Object[]{userId});)
-//    }
-
+    public Integer deleteInventoryItem(Integer itemId) {
+    	String sql = "Delete from inventory_record where itemId = ?";
+    	return jdbcTemplate.update(sql,itemId);
+    }
 }

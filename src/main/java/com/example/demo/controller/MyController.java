@@ -67,7 +67,7 @@ public class MyController {
     	}catch(Exception e) {
     		response.put("status",HttpStatus.INTERNAL_SERVER_ERROR.value());
     		response.put("message","Failed to insert inventory");
-    		System.out.println("the error is=="+e);
+  
     	}
 return response;
     }
