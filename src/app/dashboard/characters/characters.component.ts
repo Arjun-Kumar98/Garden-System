@@ -18,12 +18,13 @@ updaterows:{itemId:number,itemname:string,itemqty:number}[]=[];
 deleterows:{itemId:number,itemname:string,itemqty:number}[]=[];
 constructor(private apiService:ApiService){}
 ngOnInit(){
-  this.addrow();
+//  this.addrow();
   this.message="";
   this.userId = window.localStorage.getItem("userId");
   this.view_details();
   this.rows=[];
   this.updaterows=[];
+  this.addrow();
 }
 view_details(){
   this.apiService.viewinventorydetails(this.userId).subscribe(res=>{
