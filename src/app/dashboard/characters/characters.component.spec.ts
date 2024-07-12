@@ -22,6 +22,7 @@ describe('CharactersComponent', () => {
     .compileComponents();
   });
     
+  
   beforeEach(()=>{
     fixture = TestBed.createComponent(CharactersComponent);
     component = fixture.componentInstance;
