@@ -10,7 +10,6 @@ describe('CharactersComponent', () => {
   let apiServiceMock: any;
 
   beforeEach(async () => {
-
     apiServiceMock = {
       viewInventorydetails: jasmine.createSpy('viewinventorydetails').and.returnValue(of({status:200, included:1, inventorydetails:[]})),
       saveinventorydetails: jasmine.createSpy('saveinventorydetails').and.returnValue(of({status:200,message:"Success"}))
