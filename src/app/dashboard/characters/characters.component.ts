@@ -58,10 +58,7 @@ this.message = res.message;
 }
 })
 }
-
-showrows(){
-  console.log("the rows are here.."+JSON.stringify(this.rows));
-}
+  
 addrow(){
 this.rows.push({itemId:0,itemname:"",itemqty:0});
 }
