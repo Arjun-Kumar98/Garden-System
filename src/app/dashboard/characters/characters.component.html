@@ -9,7 +9,6 @@
             <label><b>Inventory detail: {{i+1}}:</b></label>
             <p><label style="display: inline-block; font-weight: bold;">Name:</label><input type="text" maxlength="20"  [(ngModel)]="row.itemname" style="display:inline-block; width:200px; margin-left: 10px;">
             <label style="display: inline-block;font-weight: bold;">Qty:</label><input type="number" max="100" [(ngModel)] = "row.itemqty" style="display: inline-block; width:50px; margin-left: 3px;"><i class="fa fa-window-close" style="color: red;margin-left: 2px;" (click)="removerow(i,row)"></i></p>
-
         </div>
      </div> 
         <button type="submit" style="align-self: center; width: 100px;height: 30px;" (click)="addrow()">ADD</button>
