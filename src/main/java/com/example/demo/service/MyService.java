@@ -22,7 +22,6 @@ public class MyService {
             myRepository.insertUser(username, password, emailaddress);
         } catch (Exception e) {
             e.printStackTrace();
-            // Handle exception as needed
         }
     }
    public Integer loginUser(Map<String,String> requestBody) {
