@@ -18,8 +18,11 @@ export class SignupComponent {
   successmessage:any;
   
 constructor(private apiService:ApiService){}
-
-
+checker(){
+ if(this.newuser!=""&&this.useremail!=""&&(this.userpassword==this.confpassword)){
+ this.register();  
+}
+}
 register(){
   const data={
     "username":this.newuser,
