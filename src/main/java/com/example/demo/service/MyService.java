@@ -48,8 +48,6 @@ public class MyService {
 			for(Map<String,Object> item:inventoryList) {
 				   String itemName = (String) item.get("itemname");
 				   Integer itemQty = (Integer) item.get("itemqty");
-					System.out.println("The name here is=="+itemName);
-					System.out.println("The quantity here is =="+itemQty);
 				   myRepository.insertInventory(userId, itemName, itemQty);
 			}
 		  List<Map<String,Object>>  inventoryupdateList =(List<Map<String,Object>>) requestBody.get("inventory_update_list");
