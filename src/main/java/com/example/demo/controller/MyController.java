@@ -86,7 +86,7 @@ return response;
     	}else {
     		response.put("status", HttpStatus.OK.value());
     		response.put("included",0);
-    		response.put("message","Please fill your inventory");
+    		response.put("message","Here is your inventory");
     		
     	}
     	
