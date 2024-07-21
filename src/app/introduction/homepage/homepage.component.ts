@@ -39,10 +39,8 @@ signup(){
 
 emptycheck(name:any){
 if((name!=null)&&(name!="")){
-  console.log("I am called here for now");
 return true;
 }else{
-  this.errormessage="Please enter all the details";
 return false;
 }
 }
