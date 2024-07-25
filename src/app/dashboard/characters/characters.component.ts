@@ -62,7 +62,7 @@ this.message = res.message;
 addrow(){
 this.rows.push({itemId:0,itemname:"",itemqty:0});
 }
-removerow(data:any,item:any){
+deleterow(data:any,item:any){
 
   if(item.itemId==0){
     this.rows.splice(data,1);
