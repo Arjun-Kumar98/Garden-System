@@ -25,7 +25,7 @@ public class MyController {
         try {
             myService.saveUser(requestBody);
             response.put("status",HttpStatus.OK.value());
-            response.put("message", "Congratulations. You are now a Gardener!!");
+            response.put("message", "Congratulations! You are now a Gardener!!");
         } catch (Exception e) {
             response.put("status", "500");
             response.put("message","Sorry for the inconvenience");
