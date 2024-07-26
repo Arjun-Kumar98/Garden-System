@@ -59,7 +59,7 @@ this.message = res.message;
 })
 }
   
-addrow(){
+newrow(){
 this.rows.push({itemId:0,itemname:"",itemqty:0});
 }
 deleterow(data:any,item:any){
