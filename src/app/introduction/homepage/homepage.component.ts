@@ -33,7 +33,7 @@ signup(){
   if(this.emptycheck(this.userName)&&this.emptycheck(this.password)){
     this.login();
   }else{
-    this.errormessage="Please enter all the details"; 
+    this.errormessage="Please enter the username and password"; 
   }
 }
 
@@ -45,7 +45,6 @@ return false;
 }
 }
 login(){
-
   const data={
     "username":this.userName,
     "userpassword":this.password,
