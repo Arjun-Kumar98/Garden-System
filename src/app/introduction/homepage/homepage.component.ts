@@ -33,7 +33,7 @@ signup(){
   if(this.emptycheck(this.userName)&&this.emptycheck(this.password)){
     this.login();
   }else{
-    this.errormessage="Please enter the username and password"; 
+    this.errormessage="Please enter your username and password"; 
   }
 }
 
