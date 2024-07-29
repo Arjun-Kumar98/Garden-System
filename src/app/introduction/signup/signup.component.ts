@@ -31,7 +31,7 @@ register(){
   }
   this.apiService.signUp(data).subscribe({
       next:(response)=>{
-                        
+              this.successmessage = response.message;      
       },
       error:(error)=>{
         console.error("Error registering user",error);
