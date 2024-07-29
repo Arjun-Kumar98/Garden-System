@@ -63,7 +63,7 @@ public class MyController {
        try {
     	myService.insertInventory(requestBody);
         response.put("status",HttpStatus.OK.value());
-        response.put("message","Inventory inserted successfully");
+        response.put("message","inserted successfully");
     	}catch(Exception e) {
     		response.put("status",HttpStatus.INTERNAL_SERVER_ERROR.value());
     		response.put("message","Failed to insert inventory");
