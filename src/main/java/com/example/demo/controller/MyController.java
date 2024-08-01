@@ -1,12 +1,8 @@
 package com.example.demo.controller;
-
 import com.example.demo.service.MyService;
-
 import org.springframework.http.HttpStatus;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
@@ -66,7 +62,7 @@ public class MyController {
         response.put("message","inserted successfully");
     	}catch(Exception e) {
     		response.put("status",HttpStatus.INTERNAL_SERVER_ERROR.value());
-    		response.put("message","Failed to save inventory items");
+    		response.put("message","Failed to save the inventory items");
   
     	}
 return response;
