@@ -34,13 +34,14 @@ public class MyRepository {
     	return jdbcTemplate.update(sql,itemName,itemQty,itemId);
     	
     }
+    public Integer deleteInventoryItem(Integer itemId) {
+    	String sql = "Delete from inventory_record where itemId = ?";
+    	return jdbcTemplate.update(sql,itemId);
+    }
     public List<Map<String,Object>> getInventorybyUserId(Integer userId){
         String sql = "Select * from inventory_record where userId = ?";
         return jdbcTemplate.queryForList(sql, new Object[]{userId});
     }
 
-    public Integer deleteInventoryItem(Integer itemId) {
-    	String sql = "Delete from inventory_record where itemId = ?";
-    	return jdbcTemplate.update(sql,itemId);
-    }
+  
 }
