@@ -32,7 +32,6 @@ public class MyRepository {
     public Integer updateInventory(String itemName,Integer itemQty,Integer itemId) {
     	String sql ="UPDATE inventory_record set itemname = ? , itemqty =? where itemId =?";
     	return jdbcTemplate.update(sql,itemName,itemQty,itemId);
-    	
     }
     public Integer deleteInventoryItem(Integer itemId) {
     	String sql = "Delete from inventory_record where itemId = ?";
