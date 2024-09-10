@@ -37,7 +37,7 @@ public class MyController {
     	if(userId>0) {
     		response.put("status",HttpStatus.OK.value());
     		response.put("userId", userId);	
-    		response.put("message", "Got to keep gardening!!");
+    		response.put("message", "Got to keep gardening!");
     	}else {
     		response.put("status", HttpStatus.OK.value());
     		response.put("userId", userId);
